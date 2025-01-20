@@ -1,3 +1,8 @@
+.introduction {
+    @apply mb-20;
+    @apply md:mb-9;
+}
+
 .introduction__container {
     @apply container grid grid-cols-12 gap-6 pt-20;
     @apply lg:px-6;
@@ -5,7 +10,7 @@
 }
 
 .introduction__title {
-    @apply col-span-4 font-black text-40_48 relative pl-5 flex items-center;
+    @apply col-span-4 font-black text-40_48 relative  flex items-center;
     background: -webkit-linear-gradient(
         90deg,
         #ffb6c1 0%,

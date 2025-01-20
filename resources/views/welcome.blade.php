@@ -18,19 +18,28 @@
     <section class="search">
         <div class="search__container">
             <form action="{{ route('welcome') }}" method="GET">
-                <input type="text" name="search" class="search__bar" placeholder="Search projects..."
-                    value="{{ request('search') }}" />
+                @csrf
 
-                <select name="tag" class="search__filters">
-                    <option value="">All Tags</option>
-                    @foreach ($tags as $tag)
-                        <option value="{{ $tag->id }}" {{ request('tag') == $tag->id ? 'selected' : '' }}>
-                            {{ $tag->name }}
-                        </option>
-                    @endforeach
-                </select>
+                <div class="search__bar">
+                    <input type="text" name="search" placeholder="Search projects..."
+                        value="{{ request('search') }}" />
+                </div>
 
-                <button type="submit" class="search__button">Filter</button>
+                <div class="search__filters">
+                    <select name="tag" class="search__filters-select">
+                        <option value="">All Tags</option>
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}" {{ request('tag') == $tag->id ? 'selected' : '' }}>
+                                {{ $tag->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+
+                <div class="search__button">
+                    <button type="submit">Filter</button>
+                </div>
             </form>
         </div>
     </section>
@@ -67,7 +76,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Submit form on "Enter" key press in the search field
-        document.querySelector('.projects__search').addEventListener('keydown', function(e) {
+        document.querySelector('.search__bar').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 this.form.submit();
@@ -75,7 +84,7 @@
         });
 
         // Submit form automatically when a tag is selected
-        document.querySelector('.projects__filter').addEventListener('change', function() {
+        document.querySelector('.search__filters-select').addEventListener('change', function() {
             this.form.submit();
         });
     });

@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
     {
         Storage::disk('public')->makeDirectory('images/projects');
 
-
         User::insert([
             [
                 'name' => 'Vicky',

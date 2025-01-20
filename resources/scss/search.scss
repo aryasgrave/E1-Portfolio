@@ -1,0 +1,88 @@
+.search {
+    @apply mb-20;
+    @apply md:mb-9;
+}
+
+.search__container {
+    @apply container;
+    @apply lg:px-6;
+    @apply sm:px-4;
+
+    form {
+        @apply grid grid-cols-12 gap-4;
+    }
+}
+
+.search__bar {
+    @apply col-span-8 relative p-0.5 rounded-[3px];
+
+    background-size: 225%;
+    background-image: linear-gradient(
+        124deg,
+        #ffc1e3 0%,
+        #ffc1e3 8%,
+        #e1c4f2 36%,
+        #d7b7eb 65%,
+        #cdb0e2 75%,
+        #b39bd1 100%
+    );
+
+    input {
+        @apply w-full rounded-[3px] px-4 py-0.5;
+        @apply focus:outline-none focus:ring-0;
+    }
+}
+
+.search__filters,
+.search__button {
+    @apply col-span-2;
+}
+
+.search__filters {
+    @apply relative p-0.5 rounded-full flex items-center justify-center;
+
+    background-size: 225%;
+    background-image: linear-gradient(
+        124deg,
+        #ffc1e3 0%,
+        #ffc1e3 8%,
+        #e1c4f2 36%,
+        #d7b7eb 65%,
+        #cdb0e2 75%,
+        #b39bd1 100%
+    );
+
+    select {
+        @apply bg-white appearance-none w-full rounded-full pl-3 py-0.5;
+        @apply focus:outline-none focus:ring-0;
+    }
+
+    i {
+        @apply text-[12px] absolute right-3 inset-y-auto;
+    }
+}
+
+.search__button {
+    @apply inline-flex text-center cursor-pointer transition-all duration-300;
+    @apply uppercase p-0.5 rounded-full items-center justify-center;
+    background-size: 225%;
+    background-image: linear-gradient(
+        124deg,
+        #ffc1e3 0%,
+        #ffc1e3 8%,
+        #e1c4f2 36%,
+        #d7b7eb 65%,
+        #cdb0e2 75%,
+        #b39bd1 100%
+    );
+
+    button {
+        @apply bg-white w-full rounded-full transition-all duration-300 py-0.5;
+    }
+
+    &:hover {
+        button {
+            @apply bg-transparent;
+        }
+    }
+}
