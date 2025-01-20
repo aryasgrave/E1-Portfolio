@@ -33,9 +33,6 @@ module.exports = {
                 beige: "#F4E9DC",
                 blue: "#4AAED8",
             },
-            boxShadow: {
-                nav: "0px 1px 12px rgba(0, 0, 0, 0.12)",
-            },
             container: {
                 center: true,
             },

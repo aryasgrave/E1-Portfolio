@@ -15,14 +15,13 @@
         </div>
     </section>
 
-    <section class="projects">
-        <div class="projects__container">
-            <!-- Search and Filter -->
-            <form action="{{ route('welcome') }}" method="GET" class="projects__filters">
-                <input type="text" name="search" placeholder="Search projects..." value="{{ request('search') }}"
-                    class="projects__search" />
+    <section class="search">
+        <div class="search__container">
+            <form action="{{ route('welcome') }}" method="GET">
+                <input type="text" name="search" class="search__bar" placeholder="Search projects..."
+                    value="{{ request('search') }}" />
 
-                <select name="tag" class="projects__filter">
+                <select name="tag" class="search__filters">
                     <option value="">All Tags</option>
                     @foreach ($tags as $tag)
                         <option value="{{ $tag->id }}" {{ request('tag') == $tag->id ? 'selected' : '' }}>
@@ -31,10 +30,13 @@
                     @endforeach
                 </select>
 
-                <button type="submit" class="projects__filter-button">Filter</button>
+                <button type="submit" class="search__button">Filter</button>
             </form>
+        </div>
+    </section>
 
-            <!-- Projects List -->
+    <section class="projects">
+        <div class="projects__container">
             <div class="projects__items">
                 @forelse ($projects as $project)
                     <a href="{{ $project->link }}" class="projects__item">
