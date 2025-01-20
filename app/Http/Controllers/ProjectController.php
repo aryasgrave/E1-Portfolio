@@ -9,11 +9,27 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $users = User::all();
-        $projects = Project::all();
+
+        $search = $request->get('search', '');
+        $tagId = $request->get('tag', '');
+
+        $projects = Project::query()
+            ->when($search, function ($query, $search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->when($tagId, function ($query, $tagId) {
+                $query->whereHas('tags', function ($query) use ($tagId) {
+                    $query->where('tags.id', $tagId);
+                });
+            })
+            ->with('tags')
+            ->get();
+
         $tags = Tag::all();
+
         return view('welcome', compact('users', 'projects', 'tags'));
     }
 

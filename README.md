@@ -7,7 +7,6 @@ E1 Blokstart assignment, project chosen is portfolio website.
 -   BEM Architecture for div structure.
 -   Tabs for indentations
 -   Tailwind in .scss file
--   PascalClass for classes, camelCase for variables and functions.
 -   Almost every line should end in a semicolon. Don't rely on semicolon-insertion.
 -   Naming
     -   Controllers: Singular (Ex: ArticleController)
