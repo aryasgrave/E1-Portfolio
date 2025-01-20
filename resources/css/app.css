@@ -1,4 +1,6 @@
 @import "../scss/app.scss";
+@import "../scss/buttons.scss";
+@import "../scss/introduction.scss";
 
 @tailwind base;
 @tailwind components;

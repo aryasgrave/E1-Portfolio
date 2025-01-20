@@ -1,0 +1,27 @@
+.introduction__container {
+    @apply container grid grid-cols-12 gap-6 pt-20;
+    @apply lg:px-6;
+    @apply sm:px-4;
+}
+
+.introduction__title {
+    @apply col-span-4 font-black text-40_48 relative pl-5 flex items-center;
+    background: -webkit-linear-gradient(
+        90deg,
+        #ffb6c1 0%,
+        /* Light Pink */ #dda0dd 100% /* Plum (Light Purple) */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.introduction__text {
+    @apply col-span-8 relative pl-4 py-6;
+
+    &::before {
+        @apply absolute inset-y-0 content-[""] left-0 w-0.5 rounded h-full my-auto;
+        background: transparent
+            linear-gradient(177deg, #ffb6c1 30%, #dda0dd 100%) 0% 0% no-repeat
+            padding-box;
+    }
+}

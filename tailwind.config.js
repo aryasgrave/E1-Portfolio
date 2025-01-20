@@ -11,150 +11,43 @@ const multiplier = {
 // name: '60_64_32_32', fontSize: 60, lineHeight: 64, multiplier: null, fontSizeMob: 32, lineHeightMob: 32 //// Uses mobile font sizes as minimum
 
 const fontSizesList = [
-    { name: '18_30', fontSize: 18, lineHeight: 30, multiplier: multiplier.lg},
+    { name: '40_48', fontSize: 40, lineHeight: 48, multiplier: multiplier.xl},
     { name: "default", fontSize: 18, lineHeight: 30, multiplier: null, fontSizeMob: 13, lineHeightMob: 24, },
 ];
 
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
-
-/** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-    ],
-
+module.exports = {
+    content: ["./dio.templates/tpl/**/*.tpl"],
     theme: {
         screens: {
-            // '2xl': null,
-            // Null value causes error.
-            'xl': '1177px',
-            'lg': { 'max': '1176px' },
-            'md': { 'max': '900px' },
-            'sm': { 'max': '768px' },
-            'mob': { 'max': '600px' },
-            'xs': { 'max': '500px' },
+            xl: "1107px",
+            lg: { max: "1106px" },
+            md: { max: "900px" },
+            sm: { max: "768px" },
+            mob: { max: "600px" },
+            xs: { max: "500px" },
         },
 
         extend: {
-            // fontFamily: {
-            //     fontText: ['Gotham', 'sans-serif'],
-            //     fontTitle: ['Gotham bold', 'sans-serif'],
-            //     fontAwesome: ['"Font Awesome 6 Pro"']
-            // },
             colors: {
-                background: "#1A1A1A",
-                border: "#707070",
-                black: "#000000",
+                primary: "#000000",
+                beige: "#F4E9DC",
+                blue: "#4AAED8",
             },
-            margin: {
-                'xs': '6px',
-                'sm': '12px',
-                'mob': '18px',
-                'def': '24px',
-                '30': '30px',
-                'md': '36px',
-                'lg': '48px',
-                'xl': '60px',
-                '2xl': '72px',
-                '3xl': '96px',
-                '1-col': 'calc(100% / 12)',
-                '2-col': 'calc(100% / 12 * 2)'
-            },
-            padding: {
-                'xs': '6px',
-                'sm': '12px',
-                'mob': '18px',
-                'def': '24px',
-                '30': '30px',
-                'md': '36px',
-                'lg': '48px',
-                'xl': '60px',
-                '2xl': '72px',
-                '3xl': '96px',
-                '1-col': 'calc(100% / 12)',
-                '2-col': 'calc(100% / 12 * 2)'
-            },
-            inset: {
-                'xs': '6px',
-                'sm': '12px',
-                'mob': '18px',
-                'def': '24px',
-                'md': '36px',
-                'lg': '48px',
-                'xl': '60px',
-                '2xl': '72px',
-                '3xl': '96px',
-                '1-col': 'calc(100% / 12)',
-                '2-col': 'calc(100% / 12 * 2)'
-            },
-            borderRadius: {
-                '8': '8px',
-                '24': '24px',
-                '35': '35px'
-            },
-            zIndex: {
-                "-1": "-1",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5",
-                "6": "6",
-                "7": "7",
-                "8": "8",
-                "9": "9",
-                "99": "99",
-                "999": "999",
+            boxShadow: {
+                nav: "0px 1px 12px rgba(0, 0, 0, 0.12)",
             },
             container: {
                 center: true,
             },
             fontSize: loadFontSizes(fontSizesList),
-            gap: {
-                'xs': '6px',
-                'sm': '12px',
-                'mob': '18px',
-                'def': '24px',
-                'md': '36px',
-                'lg': '48px',
-                'xl': '60px',
-            },
-            height: {
-                'xs': '6px',
-                'sm': '12px',
-                'mob': '18px',
-                'def': '24px',
-                'md': '36px',
-                'lg': '48px',
-                'xl': '60px',
-                '2xl': '72px',
-                '3xl': '96px'
-            },
-            width: {
-                'xs': '6px',
-                'sm': '12px',
-                'mob': '18px',
-                'def': '24px',
-                'md': '36px',
-                'lg': '48px',
-                'xl': '60px',
-                '2xl': '72px',
-                '3xl': '96px'
-            },
         },
     },
-    variants: {
-        borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
-    },
     plugins: [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
+        require("postcss-import"),
+        require("tailwindcss"),
+        require("autoprefixer"),
     ],
-}
+};
 
 function loadFontSizes(fontList) {
     var response = {};
@@ -193,4 +86,3 @@ function fontClamp(
         },
     ];
 }
-

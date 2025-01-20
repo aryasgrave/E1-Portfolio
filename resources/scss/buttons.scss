@@ -1,0 +1,55 @@
+%btn {
+    @apply inline-flex text-center cursor-pointer transition-all duration-300;
+}
+
+%btn-solid {
+    @extend %btn;
+    @apply font-medium uppercase tracking-[.56px] min-h-[64px] rounded-full items-center justify-center py-2 px-6;
+    @apply xs:w-full xs:px-3 xs:min-h-[48px] xs:py-1;
+}
+
+.btn-transp--gradient {
+    @extend %btn-solid;
+    @apply relative z-[1];
+    @apply hover:text-white;
+
+    &::before,
+    &::after {
+        @apply absolute inset-0 rounded-full content-[""] -z-10;
+    }
+
+    &::before {
+        background: transparent
+            linear-gradient(304deg, #ffc1e3 0%, #e1c4f2 80%, #e1c4f2 100%) 0% 0%
+            no-repeat padding-box; /* Soft pink to light purple */
+    }
+
+    &::after {
+        @apply inset-px bg-white transition-opacity duration-300;
+    }
+
+    &:hover {
+        &::after {
+            @apply opacity-0;
+        }
+    }
+}
+
+.btn-solid--gradient {
+    @extend %btn-solid;
+    @apply text-white;
+    background-size: 225%;
+    background-image: linear-gradient(
+        124deg,
+        #ffc1e3 0%,
+        #ffc1e3 8%,
+        #e1c4f2 36%,
+        #d7b7eb 65%,
+        #cdb0e2 75%,
+        #b39bd1 100%
+    ); /* Light pink to purple gradient */
+
+    &:hover {
+        background-position: 100% 0;
+    }
+}
