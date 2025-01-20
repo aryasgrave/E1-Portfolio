@@ -53,14 +53,16 @@
                             <div class="projects__item-media">
                                 <img src="{{ asset($project->photo) }}" alt="{{ $project->name }}">
                             </div>
-                            <span class="projects__item-title">{{ $project->name }}</span>
-                            <p class="projects__item-description">
-                                {{ $project->description }}
-                            </p>
-                            <div class="projects__item-tags">
-                                @foreach ($project->tags as $tag)
-                                    <span class="projects__item-tag  ">{{ $tag->name }}</span>
-                                @endforeach
+                            <div class="projects__item-text">
+                                <span class="projects__item-title">{{ $project->name }}</span>
+                                <p class="projects__item-description">
+                                    {{ $project->description }}
+                                </p>
+                                <div class="projects__item-tags">
+                                    @foreach ($project->tags as $tag)
+                                        <span class="projects__item-tag  ">{{ $tag->name }}</span>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </a>

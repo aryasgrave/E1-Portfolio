@@ -2,6 +2,7 @@
 @import "../scss/buttons.scss";
 @import "../scss/introduction.scss";
 @import "../scss/search.scss";
+@import "../scss/projects.scss";
 
 @tailwind base;
 @tailwind components;
