@@ -21,7 +21,7 @@
                 @csrf
 
                 <div class="search__bar">
-                    <input type="text" name="search" placeholder="Search projects..."
+                    <input type="text" name="search" class="search__bar-select" placeholder="Search projects..."
                         value="{{ request('search') }}" />
                 </div>
 
@@ -52,15 +52,16 @@
                         <div class="projects__item-content">
                             <div class="projects__item-media">
                                 <img src="{{ asset($project->photo) }}" alt="{{ $project->name }}">
+                                <span class="projects__item-title">{{ $project->name }}</span>
                             </div>
                             <div class="projects__item-text">
-                                <span class="projects__item-title">{{ $project->name }}</span>
                                 <p class="projects__item-description">
                                     {{ $project->description }}
                                 </p>
                                 <div class="projects__item-tags">
                                     @foreach ($project->tags as $tag)
-                                        <span class="projects__item-tag  ">{{ $tag->name }}</span>
+                                        <span class="projects__item-tag"><span
+                                                class="projects__item-tag-inner">{{ $tag->name }}</span></span>
                                     @endforeach
                                 </div>
                             </div>
@@ -78,7 +79,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Submit form on "Enter" key press in the search field
-        document.querySelector('.search__bar').addEventListener('keydown', function(e) {
+        document.querySelector('.search__bar-select').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 this.form.submit();

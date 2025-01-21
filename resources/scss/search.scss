@@ -13,9 +13,10 @@
     }
 }
 
-.search__bar {
-    @apply col-span-8 relative p-0.5 rounded-[3px];
-
+.search__bar,
+.search__filters,
+.search__button {
+    @apply relative p-0.5;
     background-size: 225%;
     background-image: linear-gradient(
         124deg,
@@ -26,6 +27,10 @@
         #cdb0e2 75%,
         #b39bd1 100%
     );
+}
+
+.search__bar {
+    @apply col-span-8 rounded-[3px];
 
     input {
         @apply w-full rounded-[3px] px-4 py-0.5;
@@ -35,25 +40,19 @@
 
 .search__filters,
 .search__button {
-    @apply col-span-2;
+    @apply col-span-2 rounded-full items-center justify-center;
+
+    button,
+    select {
+        @apply bg-white w-full rounded-full py-0.5;
+    }
 }
 
 .search__filters {
-    @apply relative p-0.5 rounded-full flex items-center justify-center;
-
-    background-size: 225%;
-    background-image: linear-gradient(
-        124deg,
-        #ffc1e3 0%,
-        #ffc1e3 8%,
-        #e1c4f2 36%,
-        #d7b7eb 65%,
-        #cdb0e2 75%,
-        #b39bd1 100%
-    );
+    @apply flex;
 
     select {
-        @apply bg-white appearance-none w-full rounded-full pl-3 py-0.5;
+        @apply appearance-none pl-3;
         @apply focus:outline-none focus:ring-0;
     }
 
@@ -63,26 +62,15 @@
 }
 
 .search__button {
-    @apply inline-flex text-center cursor-pointer transition-all duration-300;
-    @apply uppercase p-0.5 rounded-full items-center justify-center;
-    background-size: 225%;
-    background-image: linear-gradient(
-        124deg,
-        #ffc1e3 0%,
-        #ffc1e3 8%,
-        #e1c4f2 36%,
-        #d7b7eb 65%,
-        #cdb0e2 75%,
-        #b39bd1 100%
-    );
+    @apply inline-flex text-center cursor-pointer;
 
     button {
-        @apply bg-white w-full rounded-full transition-all duration-300 py-0.5;
+        @apply transition-all duration-300;
     }
 
     &:hover {
         button {
-            @apply bg-transparent;
+            @apply bg-transparent text-white;
         }
     }
 }
