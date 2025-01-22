@@ -1,3 +1,38 @@
 body {
     @apply bg-white;
 }
+
+.login__container {
+    @apply container grid grid-cols-12 h-screen flex items-center justify-center;
+    @apply lg:px-6;
+    @apply sm:px-4;
+}
+
+.login {
+    form {
+        @apply col-span-8 col-start-3 flex flex-col gap-4;
+        @apply md:col-span-12;
+
+        .input {
+            @apply flex flex-col;
+
+            input {
+                @apply border border-solid border-[#ffc1e3] px-4 py-0.5;
+            }
+        }
+
+        .submit {
+            @apply flex flex-row items-center justify-between;
+            // @apply md:flex-col md:items-start md:gap-y-4;
+            a {
+                @apply underline transition-all duration-300;
+                @apply hover:text-[#ffc1e3];
+            }
+
+            .btn-solid--gradient {
+                @apply min-h-[44px];
+                @apply xs:w-fit;
+            }
+        }
+    }
+}

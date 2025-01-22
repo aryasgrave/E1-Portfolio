@@ -1,6 +1,10 @@
 .introduction {
     @apply mb-20;
     @apply md:mb-9;
+
+    &:has(+ .projects) {
+        @apply mb-9;
+    }
 }
 
 .introduction__container {
@@ -20,6 +24,14 @@
     br {
         @apply md:hidden;
     }
+
+    &:not(:has(+ .introduction__text)) {
+        @apply col-span-12 flex items-center justify-center text-center;
+
+        br {
+            @apply hidden;
+        }
+    }
 }
 
 .introduction__text {
@@ -32,5 +44,13 @@
         background: transparent
             linear-gradient(177deg, #ffb6c1 30%, #dda0dd 100%) 0% 0% no-repeat
             padding-box;
+    }
+}
+
+.introduction__actions {
+    @apply col-span-12 flex items-center justify-center;
+
+    .btn-solid--gradient {
+        @apply min-h-[44px];
     }
 }

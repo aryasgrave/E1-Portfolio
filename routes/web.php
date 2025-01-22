@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', [ProjectController::class, 'index'])->name('welcome');
 
 Route::get('/dashboard', [ProjectController::class, 'dashboard'])

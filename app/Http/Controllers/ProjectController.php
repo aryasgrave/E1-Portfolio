@@ -35,9 +35,10 @@ class ProjectController extends Controller
 
     public function dashboard()
     {
+        $users = User::all();
         $projects = Project::all();
         $tags = Tag::all();
-        return view('dashboard', compact('projects'));
+        return view('dashboard', compact('users', 'projects', 'tags'));
     }
 
     public function create()
@@ -57,18 +58,21 @@ class ProjectController extends Controller
             'tags.*' => 'exists:tags,id',
         ]);
 
-        $photoPath = $request->file('photo')->storeAs(
-            'images/projects',
-            time() . '.' . $request->file('photo')->getClientOriginalExtension(),
-            'public'
-        );
+        $project = new Project();
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->link = $request->link;
 
-        $project = Project::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'link' => $request->link,
-            'photo' => $photoPath,
-        ]);
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            $image->move(public_path('images/projects'), $imageName);
+
+            $project->photo = 'images/projects/' . $imageName;
+        }
+
+        $project->save();
 
         if ($request->tags) {
             $project->tags()->sync($request->tags);
@@ -94,27 +98,30 @@ class ProjectController extends Controller
             'tags.*' => 'exists:tags,id',
         ]);
 
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->link = $request->link;
+
         if ($request->hasFile('photo')) {
             if ($project->photo && file_exists(public_path($project->photo))) {
                 unlink(public_path($project->photo));
             }
 
-            $photoPath = $request->file('photo')->storeAs(
-                'images/projects',
-                time() . '.' . $request->file('photo')->getClientOriginalExtension(),
-                'public'
-            );
+            $image = $request->file('photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-            $project->photo = $photoPath;
+            $image->move(public_path('images/projects'), $imageName);
+
+            $project->photo = 'images/projects/' . $imageName;
         }
 
-        $project->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'link' => $request->link,
-        ]);
+        $project->save();
 
-        $project->tags()->sync($request->tags ?? []);
+        if ($request->tags) {
+            $project->tags()->sync($request->tags);
+        } else {
+            $project->tags()->detach();
+        }
 
         return redirect()->route('dashboard')->with('success', 'Project updated successfully.');
     }
