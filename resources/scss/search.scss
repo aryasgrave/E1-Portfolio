@@ -1,5 +1,6 @@
 .search {
     @apply mb-20 mx-52;
+    @apply lg:mx-0;
     @apply md:mb-9;
 }
 
@@ -31,6 +32,7 @@
 
 .search__bar {
     @apply col-span-8 rounded-[3px];
+    @apply md:col-span-12;
 
     input {
         @apply w-full rounded-[3px] px-4 py-0.5;
@@ -41,6 +43,8 @@
 .search__filters,
 .search__button {
     @apply col-span-2 rounded-full items-center justify-center;
+    @apply md:col-span-6;
+    @apply mob:col-span-12;
 
     button,
     select {
@@ -53,11 +57,13 @@
 
     select {
         @apply appearance-none pl-3;
+        @apply md:pl-6;
         @apply focus:outline-none focus:ring-0;
     }
 
     i {
         @apply text-[12px] absolute right-3 inset-y-auto;
+        @apply md:right-6;
     }
 }
 

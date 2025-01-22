@@ -1,6 +1,7 @@
 .projects {
     @apply mb-20 mx-52;
-    @apply md:mb-0;
+    @apply lg:mx-0;
+    @apply md:mb-9;
 }
 
 .projects__container {
@@ -13,8 +14,13 @@
     @apply grid grid-cols-12 gap-6;
 }
 
-.projects__item {
-    @apply col-span-4 relative rounded-[3px];
+.projects__no-results {
+    @apply col-span-12 text-center;
+}
+
+.projects__item,
+.projects__item-title,
+.projects__item-tag {
     background-size: 225%;
     background-image: linear-gradient(
         124deg,
@@ -26,8 +32,25 @@
         #b39bd1 100%
     );
 
+    &::after,
+    .projects__item-tag-inner {
+        @apply bg-white;
+    }
+}
+
+.projects__item-tag,
+.projects__item-tag-inner,
+.projects__item-title {
+    @apply rounded-full;
+}
+
+.projects__item {
+    @apply col-span-4 relative rounded-[3px];
+    @apply md:col-span-6;
+    @apply mob:col-span-12;
+
     &::after {
-        @apply content-[""] z-10 absolute m-0.5 inset-0 rounded-[3px] bg-white transition-opacity duration-300;
+        @apply content-[""] z-10 absolute m-0.5 inset-0 rounded-[3px];
     }
 }
 
@@ -44,22 +67,17 @@
 }
 
 .projects__item-title {
-    @apply absolute bottom-3 right-5 rounded-full text-white px-3 py-0.5;
-
-    background-size: 225%;
-    background-image: linear-gradient(
-        124deg,
-        #ffc1e3 0%,
-        #ffc1e3 8%,
-        #e1c4f2 36%,
-        #d7b7eb 65%,
-        #cdb0e2 75%,
-        #b39bd1 100%
-    );
+    @apply absolute bottom-3 right-5 text-white px-3 py-0.5;
 }
 
 .projects__item-text {
     @apply px-9 py-4;
+
+    p {
+        + * {
+            @apply mt-3;
+        }
+    }
 }
 
 .projects__item-tags {
@@ -67,20 +85,9 @@
 }
 
 .projects__item-tag {
-    @apply relative rounded-full;
-    padding: 3px 2px 2px 2px;
-    background-size: 225%;
-    background-image: linear-gradient(
-        124deg,
-        #ffc1e3 0%,
-        #ffc1e3 8%,
-        #e1c4f2 36%,
-        #d7b7eb 65%,
-        #cdb0e2 75%,
-        #b39bd1 100%
-    );
+    @apply relative p-[3px_2px_2px_2px];
 }
 
 .projects__item-tag-inner {
-    @apply bg-white w-full rounded-full py-0.5 px-3;
+    @apply w-full py-0.5 px-3;
 }

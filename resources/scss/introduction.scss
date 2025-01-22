@@ -6,25 +6,29 @@
 .introduction__container {
     @apply container grid grid-cols-12 gap-6 pt-20;
     @apply lg:px-6;
+    @apply md:pt-9 md:gap-3;
     @apply sm:px-4;
 }
 
 .introduction__title {
     @apply col-span-4 font-black text-40_48 relative  flex items-center;
-    background: -webkit-linear-gradient(
-        90deg,
-        #ffb6c1 0%,
-        /* Light Pink */ #dda0dd 100% /* Plum (Light Purple) */
-    );
+    @apply md:col-span-12 md:text-center md:items-center md:justify-center;
+    background: -webkit-linear-gradient(90deg, #ffb6c1 0%, #dda0dd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    br {
+        @apply md:hidden;
+    }
 }
 
 .introduction__text {
     @apply col-span-8 relative pl-4 py-6;
+    @apply md:col-span-12 md:pl-0 md:pt-2 md:pb-0;
 
     &::before {
         @apply absolute inset-y-0 content-[""] left-0 w-0.5 rounded h-full my-auto;
+        @apply md:top-0 md:bottom-auto md:w-full md:h-0.5;
         background: transparent
             linear-gradient(177deg, #ffb6c1 30%, #dda0dd 100%) 0% 0% no-repeat
             padding-box;
