@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Vicky',
                 'username' => 'aryasgrave',
-                'email' => 'v.ernst2006@gmail.com',
+                'email' => 'testaccount@test.nl',
                 'password' => bcrypt('password'),
                 'introduction' => 'I’m an 18 year old full stack developer. I love designing websites, building them and solving the problems that come my way. If I’m not coding I am probably playing games, reading a book or remaking my planning and organization system (this happens a lot.) ',
             ],
