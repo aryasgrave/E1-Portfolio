@@ -112,6 +112,7 @@
 }
 
 .projects__edit {
+    @apply flex justify-center;
     a {
         i {
             @apply text-[#b39bd1] transition-all duration-300;

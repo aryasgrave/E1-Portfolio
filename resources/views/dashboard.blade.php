@@ -28,11 +28,11 @@
                         <td>{{ $project->name }}</td>
                         <td>{{ $project->description }}</td>
                         <td>
-                            <div class="projects__tags">
+                            <ul class="projects__tags">
                                 @foreach ($project->tags as $tag)
-                                    {{ $tag->name }} <br>
+                                    <li>&#8226; {{ $tag->name }}</li>
                                 @endforeach
-                            </div>
+                            </ul>
                         </td>
                         <td>
                             <div class="projects__edit">
