@@ -1,6 +1,14 @@
 <x-app-layout>
     <div class="form form--edit">
         <div class="form__container">
+            <div class="form__goback">
+                <a href="{{ url('/dashboard') }}" class="btn-solid--gradient">
+                    <button type="button">
+                        <i class="fa-solid fa-arrow-left"></i> Back to dashboard?
+                    </button>
+                </a>
+            </div>
+
             <span class="form__title">Edit Project</span>
 
             <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">

@@ -1,6 +1,14 @@
 <x-app-layout>
     <div class="form form--create">
         <div class="form__container">
+            <div class="form__goback">
+                <a href="{{ url('/dashboard') }}" class="btn-solid--gradient">
+                    <button type="button">
+                        <i class="fa-solid fa-arrow-left"></i> Back to dashboard?
+                    </button>
+                </a>
+            </div>
+
             <span class="form__title">Create new project</span>
 
             <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
@@ -8,7 +16,8 @@
 
                 <div class="form__item">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                    <input type="text" name="name" id="name" class="form-control"
+                        value="{{ old('name') }}">
                     @if ($errors->has('name'))
                         <span class="error">{{ $errors->first('name') }}</span>
                     @endif

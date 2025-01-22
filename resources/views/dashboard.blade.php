@@ -1,11 +1,31 @@
 <x-app-layout>
     <section class="introduction">
         <div class="introduction__container">
+
             <span class="introduction__title">
                 @foreach ($users as $user)
                     {!! $user->username !!}
                 @endforeach
             </span>
+
+            <div class="introduction__topbuttons">
+                <a href="{{ url('/') }}" class="btn-solid--gradient">
+                    <button type="button">
+                        <i class="fa-solid fa-arrow-left"></i> Back to homepage?
+                    </button>
+                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                        this.closest('form').submit();"
+                        class="btn-solid--gradient">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </div>
 
             <div class="introduction__actions">
                 <a href="{{ route('projects.create') }}" class="btn-solid--gradient">New project</a>
