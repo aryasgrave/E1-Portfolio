@@ -40,8 +40,11 @@ E1 Blokstart assignment, project chosen is portfolio website.
         - password: password
     3. And start testing. You can see, create, edit and delete projects.
 
--   Questions, something not working? Ask me. Here are some questions you may have
+# Questions, something not working? Ask me. Here are some questions you may have
+
     -   Styling not working?
         -   Try <code>npm install -d sass</code>
+    -   Are the projects in your seeder real projects you worked on?
+        -   Yes. I just didn't fill in the images.
     -   Can you make an account?
         -   No there is no way to go to the register form.
