@@ -78,7 +78,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Submit form on "Enter" key press in the search field
         document.querySelector('.search__bar-select').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -86,7 +85,6 @@
             }
         });
 
-        // Submit form automatically when a tag is selected
         document.querySelector('.search__filters-select').addEventListener('change', function() {
             this.form.submit();
         });

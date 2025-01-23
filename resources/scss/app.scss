@@ -23,7 +23,6 @@ body {
 
         .submit {
             @apply flex flex-row items-center justify-between;
-            // @apply md:flex-col md:items-start md:gap-y-4;
             a {
                 @apply underline transition-all duration-300;
                 @apply hover:text-[#ffc1e3];
